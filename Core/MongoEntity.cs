@@ -20,7 +20,7 @@ namespace MongoEntity {
 			this.collection_name = collection_name;
 
 			// TODO: remember to upgrade to MongoClient
-			var Server = MongoServer.Create( database_settings.ServerSettings );
+			var Server = new MongoClient( database_settings.ServerSettings ).GetServer( );
 			Server.Connect();
 
 			database = Server.GetDatabase( database_settings.DatabaseName );

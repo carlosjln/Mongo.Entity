@@ -14,11 +14,11 @@ namespace MongoEntity {
 			CollectionName = collection_name;
 		}
 
-		public SafeModeResult Insert( IMongoEntity entity ) {
+		public WriteConcernResult Insert( IMongoEntity entity ) {
 			return Insert<BsonDocument>( entity );
 		}
 
-		public SafeModeResult Insert<TDocument>( IMongoEntity entity ) {
+		public WriteConcernResult Insert<TDocument>( IMongoEntity entity ) {
 			if( entity.Id == Guid.Empty) {
 				entity.Id = Guid.NewGuid();
 			}
@@ -33,11 +33,11 @@ namespace MongoEntity {
 			return collection.Insert( document_type, value );
 		}
 
-		public SafeModeResult Update( IMongoEntity entity ) {
+		public WriteConcernResult Update( IMongoEntity entity ) {
 			return Update<BsonDocument>( entity );
 		}
 
-		public SafeModeResult Update<TDocument>( IMongoEntity entity ) {
+		public WriteConcernResult Update<TDocument>( IMongoEntity entity ) {
 			var collection = Database.GetCollection<TDocument>( CollectionName );
 
 			// var update_document = entity.ToBsonDocument().to

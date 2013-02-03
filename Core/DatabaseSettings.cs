@@ -6,7 +6,7 @@ namespace MongoEntity {
 		public string ConnectionString { get; private set; }
 		public string DatabaseName { get; private set; }
 
-		public MongoServerSettings ServerSettings { get; private set; }
+		public MongoClientSettings ServerSettings { get; private set; }
 
 		public DatabaseSettings( string connection_string, string database_name ) {
 			var mongo_url = MongoUrl.Create( connection_string );
@@ -14,7 +14,7 @@ namespace MongoEntity {
 			ConnectionString = connection_string;
 			DatabaseName = database_name;
 			
-			ServerSettings = mongo_url.ToServerSettings();
+			ServerSettings = MongoClientSettings.FromUrl( mongo_url );
 		}
 
 		public DatabaseSettings( string connection_string ) {
@@ -23,10 +23,10 @@ namespace MongoEntity {
 			ConnectionString = connection_string;
 			DatabaseName = mongo_url.DatabaseName;
 			
-			ServerSettings = mongo_url.ToServerSettings();
+			ServerSettings = MongoClientSettings.FromUrl( mongo_url );
 		}
 		
-		public DatabaseSettings( MongoServerSettings server_settings ) {
+		public DatabaseSettings( MongoClientSettings server_settings ) {
 			ServerSettings = server_settings;
 		}
 	}

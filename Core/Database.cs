@@ -7,7 +7,7 @@ namespace MongoEntity {
 		public static MongoDatabase Connect( DatabaseSettings database_settings ) {
 			if( database_settings == null ) throw new Exception( "You genius! Keep trying to connect to MongoDB using 'Null' MongoSettings" );
 			
-			var Server = MongoServer.Create( database_settings.ServerSettings );
+			var Server = new MongoClient( database_settings.ServerSettings ).GetServer( );
 			Server.Connect();
 
 			return Server.GetDatabase( database_settings.DatabaseName );
