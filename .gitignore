@@ -30,7 +30,7 @@ _ReSharper*/
 *.DotSettings*
 *.[Dd]ebug.config
 *.[Rr]elease.config
-packages.config
+
 /packages
 
 backup.bat
