@@ -2,6 +2,7 @@ using System;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoEntity.Extensions;
+using MongoEntity.Interfaces;
 
 namespace MongoEntity {
 

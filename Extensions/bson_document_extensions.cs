@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoEntity.Interfaces;
 
 namespace MongoEntity.Extensions {
 
@@ -13,6 +12,8 @@ namespace MongoEntity.Extensions {
 
 		public static UpdateDocument as_update_document( this IMongoEntity entity, bool exclude_null_values ) {
 			var bson_document = entity.ToBsonDocument();
+
+			// TODO: consider not removing this elements here, instead add an extension method on NODUS.MongoDB project that does such thing
 			bson_document.Remove( "_id" );
 			bson_document.Remove( "_t" );
 

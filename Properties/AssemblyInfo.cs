@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle( "MongoEntity" )]
-[assembly: AssemblyDescription( "MongoEntity handles what needs to be done in order to insert, update, delete or retrieve your entities from MongoDB" )]
+[assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
-[assembly: AssemblyCompany( "Carlos J. López - twitter/carlosjln" )]
-[assembly: AssemblyProduct( "MongoEntity" )]
-[assembly: AssemblyCopyright( "Copyright ©  2012" )]
+[assembly: AssemblyCompany( "" )]
+[assembly: AssemblyProduct( "" )]
+[assembly: AssemblyCopyright( "" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 

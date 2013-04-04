@@ -35,11 +35,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\DummyEntity.1.0.4783.41488\lib\net40\DummyEntity.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Bson, Version=1.7.0.4714, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
-      <HintPath>packages\mongocsharpdriver.1.7\lib\net35\MongoDB.Bson.dll</HintPath>
+    <Reference Include="DummyExtensions">
+      <HintPath>packages\DummyExtensions.1.0.4819.32394\lib\net40\DummyExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver, Version=1.7.0.4714, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
-      <HintPath>packages\mongocsharpdriver.1.7\lib\net35\MongoDB.Driver.dll</HintPath>
+    <Reference Include="DummyObjects">
+      <HintPath>packages\DummyObjects.1.0.4819.32308\lib\net40\DummyObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.7.1.4791, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\mongocsharpdriver.1.7.1\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.7.1.4791, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\mongocsharpdriver.1.7.1\lib\net35\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,11 +55,13 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Collection.cs" />
-    <Compile Include="Core\Database.cs" />
-    <Compile Include="Core\Interfaces\IMongoEntity.cs" />
-    <Compile Include="Core\DatabaseSettings.cs" />
-    <Compile Include="Core\MongoEntity.cs" />
+    <Compile Include="Collection.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="Extensions\mongodb_entity_extensions.cs" />
+    <Compile Include="Interfaces\DatabaseSettings.cs" />
+    <Compile Include="Interfaces\IMongoEntity.cs" />
+    <Compile Include="DatabaseInfo.cs" />
+    <Compile Include="MongoEntity.cs" />
     <Compile Include="Extensions\bson_document_extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,14 +69,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "C:\Projects\Tools\Nuget\NuGet.exe" pack "$(ProjectPath)" -OutputDirectory "C:\Projects\Tools\Nuget\LocalFeed" -Properties Configuration=Release</PostBuildEvent>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <!-- RELEASE TO NUGET LOCAL FEED -->
+  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
+    <!-- MOVE PREVIOUS VERSIONS FROM FEED DIRECTORY -->
+    <Exec Command="C:\Projects\Tools\Nuget\GarbageCollector.exe $(ProjectName)" />
+    <!-- PACK NEW VERSION -->
+    <Exec Command="Nuget.exe pack $(ProjectPath) -OutputDirectory C:\Projects\Tools\Nuget\feed -Symbols -Properties Configuration=Release" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

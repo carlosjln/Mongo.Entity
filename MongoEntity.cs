@@ -1,5 +1,6 @@
 using System;
 using MongoDB.Driver;
+using MongoEntity.Interfaces;
 
 namespace MongoEntity {
 
@@ -10,20 +11,20 @@ namespace MongoEntity {
 		protected MongoCollection mongo_collection;
 
 		protected Collection collection;
-		protected DatabaseSettings database_settings;
+		protected IDatabaseInfo DatabaseInfo;
 		protected string collection_name {get; set;}
 
-		protected MongoEntity( DatabaseSettings database_settings, string collection_name ) {
-			if( database_settings == null ) throw new Exception( "You genius! Keep trying to connect to MongoDB using 'Null' MongoSettings" );
+		protected MongoEntity( IDatabaseInfo DatabaseInfo, string collection_name ) {
+			if( DatabaseInfo == null ) throw new Exception( "You genius! Keep trying to connect to MongoDB using 'Null' MongoSettings" );
 			
-			this.database_settings = database_settings;
+			this.DatabaseInfo = DatabaseInfo;
 			this.collection_name = collection_name;
 
 			// TODO: remember to upgrade to MongoClient
-			var Server = new MongoClient( database_settings.ServerSettings ).GetServer( );
+			var Server = new MongoClient( DatabaseInfo.MongoClientSettings ).GetServer( );
 			Server.Connect();
 
-			database = Server.GetDatabase( database_settings.DatabaseName );
+			database = Server.GetDatabase( DatabaseInfo.DatabaseName );
 			mongo_collection = database.GetCollection( collection_name );
 
 			collection = new Collection( database, collection_name );
