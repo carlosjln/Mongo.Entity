@@ -6,10 +6,16 @@ using MongoEntity.Interfaces;
 namespace MongoEntity.Extensions {
 
 	public static class bson_document_extensions {
+		/// <summary>
+		/// Creates a UpdateDocument only containing the entity’s properties that are not Null
+		/// </summary>
 		public static UpdateDocument as_update_document( this IMongoEntity entity ) {
 			return as_update_document(entity, true);
 		}
 
+		/// <summary>
+		/// Creates a UpdateDocument specifying whether or not the entity’s Null properties should be included or not
+		/// </summary>
 		public static UpdateDocument as_update_document( this IMongoEntity entity, bool exclude_null_values ) {
 			var bson_document = entity.ToBsonDocument();
 

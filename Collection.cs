@@ -20,7 +20,7 @@ namespace MongoEntity {
 		}
 
 		public WriteConcernResult Insert<TDocument>( IMongoEntity entity ) {
-			if( entity.Id == Guid.Empty) {
+			if( entity.Id == Guid.Empty ) {
 				entity.Id = Guid.NewGuid();
 			}
 
@@ -41,13 +41,17 @@ namespace MongoEntity {
 		public WriteConcernResult Update<TDocument>( IMongoEntity entity ) {
 			var collection = Database.GetCollection<TDocument>( CollectionName );
 
-			// var update_document = entity.ToBsonDocument().to
 			var update_document = entity.as_update_document();
 			IMongoQuery query = new QueryDocument( "_id", entity.Id );
 			
 			return collection.Update( query, update_document );
 		}
 
+		public WriteConcernResult Remove( IMongoEntity entity ) {
+			var collection = Database.GetCollection( CollectionName );
+			IMongoQuery query = new QueryDocument( "_id", entity.Id );
+			return collection.Remove( query );
+		}
 	}
 
 }

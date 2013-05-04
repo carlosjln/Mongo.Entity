@@ -29,7 +29,7 @@ namespace MongoEntity {
 
 			collection = new Collection( database, collection_name );
 		}
-
+		
 		public override string ToString() {
 			throw new NotImplementedException();
 			// return this.to_json();

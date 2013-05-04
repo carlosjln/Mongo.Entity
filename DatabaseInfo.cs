@@ -2,11 +2,12 @@ using MongoDB.Driver;
 using MongoEntity.Interfaces;
 
 namespace MongoEntity {
+	// TODO: consider changing the set method(s) to protected
 
 	public abstract class DatabaseInfo : IDatabaseInfo {
-		public string ConnectionString { get; private set; }
-		public string DatabaseName { get; private set; }
-		public MongoClientSettings MongoClientSettings { get; private set; }
+		public string ConnectionString { get; protected set; }
+		public string DatabaseName { get; protected set; }
+		public MongoClientSettings MongoClientSettings { get; protected set; }
 
 		public void Set( string connection_string, string database_name ) {
 			var mongo_url = MongoUrl.Create( connection_string );
