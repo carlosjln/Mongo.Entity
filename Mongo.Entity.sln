@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoEntity", "MongoEntity.csproj", "{3944D03A-7A68-423B-BEA6-88BB2A029305}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongo.Entity", "Mongo.Entity.csproj", "{3944D03A-7A68-423B-BEA6-88BB2A029305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

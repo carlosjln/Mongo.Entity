@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0"?>
 <package >
   <metadata>
-	<id>MongoEntity</id>
+	<id>Mongo.Entity</id>
 		<version>$version$</version>
 		
-		<title>MongoEntity</title>
+		<title>Mongo.Entity</title>
 		<description>MongoEntity handles what needs to be done in order to insert, update, delete or retrieve your entities from MongoDB</description>
-		<projectUrl>https://github.com/carlosjln/DummyEntity</projectUrl>
+		<projectUrl>https://github.com/carlosjln/MongoEntity</projectUrl>
 		
 		<authors>Carlos J. López</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>

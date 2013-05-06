@@ -8,8 +8,8 @@
     <ProjectGuid>{3944D03A-7A68-423B-BEA6-88BB2A029305}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MongoEntity</RootNamespace>
-    <AssemblyName>MongoEntity</AssemblyName>
+    <RootNamespace>Mongo.Entity</RootNamespace>
+    <AssemblyName>Mongo.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,9 +49,12 @@
   <ItemGroup>
     <Compile Include="Collection.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="Interfaces\DatabaseSettings.cs" />
+    <Compile Include="EntityService.cs" />
+    <Compile Include="EntitySettings.cs" />
+    <Compile Include="Interfaces\IEntitySettings.cs" />
+    <Compile Include="Interfaces\IDatabaseSettings.cs" />
     <Compile Include="Interfaces\IMongoEntity.cs" />
-    <Compile Include="DatabaseInfo.cs" />
+    <Compile Include="DatabaseSettings.cs" />
     <Compile Include="MongoEntity.cs" />
     <Compile Include="Extensions\bson_document_extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

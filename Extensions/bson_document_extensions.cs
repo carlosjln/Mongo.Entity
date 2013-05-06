@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using Mongo.Entity.Interfaces;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using MongoEntity.Interfaces;
 
-namespace MongoEntity.Extensions {
+namespace Mongo.Entity.Extensions {
 
 	public static class bson_document_extensions {
 		/// <summary>

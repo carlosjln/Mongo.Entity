@@ -1,35 +1,18 @@
 using System;
+using Mongo.Entity.Interfaces;
 using MongoDB.Driver;
-using MongoEntity.Interfaces;
 
-namespace MongoEntity {
+namespace Mongo.Entity {
 
 	public class Database {
-		public static MongoDatabase Connect( IDatabaseInfo database_info ) {
-			if( database_info == null ) throw new Exception( "You genius! Keep trying to connect to MongoDB using 'Null' MongoSettings" );
+		public static MongoDatabase Connect( IDatabaseSettings database_settings ) {
+			if( database_settings == null ) throw new Exception( "You genius! Give me a 'DatabaseSettings' so that I can connect you to MongoDB :P" );
 			
-			var Server = new MongoClient( database_info.MongoClientSettings ).GetServer( );
-			Server.Connect();
+			var Server = new MongoClient( database_settings.MongoClientSettings ).GetServer( );
+			// Server.Connect();
 
-			return Server.GetDatabase( database_info.DatabaseName );
+			return Server.GetDatabase( database_settings.DatabaseName );
 		}
 	}
-
-//	public class Database {
-//		readonly DatabaseSettings database_settings;
-//		public MongoDatabase CurrentDatabase;
-//
-//		public Database( DatabaseSettings database_settings ) {
-//			if( database_settings == null ) throw new Exception( "You genius! Keep trying to connect to MongoDB using 'Null' MongoSettings" );
-//			this.database_settings = database_settings;
-//		}
-//
-//		public MongoDatabase Connect() {
-//			var Server = MongoServer.Create( database_settings.ServerSettings );
-//			Server.Connect();
-//
-//			return CurrentDatabase = Server.GetDatabase( database_settings.DatabaseName );
-//		}
-//	}
 
 }

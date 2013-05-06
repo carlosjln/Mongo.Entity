@@ -1,8 +1,8 @@
 ﻿using MongoDB.Driver;
 
-namespace MongoEntity.Interfaces {
+namespace Mongo.Entity.Interfaces {
 
-	public interface IDatabaseInfo {
+	public interface IDatabaseSettings {
 		string ConnectionString { get; }
 		string DatabaseName { get; }
 		MongoClientSettings MongoClientSettings { get; }
