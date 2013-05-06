@@ -20,13 +20,8 @@ namespace Mongo.Entity {
 		protected MongoEntity() {
 			var entity_type = GetType();
 			var entity_settings = EntitySettings.Get( entity_type );
+
 			use_settings( entity_settings );
-			
-//			if( entity_settings != null ) {
-//				use_settings( entity_settings );
-//			} else {
-//				throw new Exception("No EntitySettings were registered for the '"+ entity_type +"' Entity. Register one using the 'MongoEntity.RegisterEntitySettings<>()' method.");
-//			}
 		}
 
 		protected MongoEntity( IDatabaseSettings database_settings, string collection_name ) {
@@ -73,18 +68,12 @@ namespace Mongo.Entity {
 			collection_name = entity_settings.CollectionName;
 
 			var server = new MongoClient( database_settings.MongoClientSettings ).GetServer( );
-			// Server.Connect();
-
+			
 			database = server.GetDatabase( database_settings.DatabaseName );
 			mongo_collection = database.GetCollection( collection_name );
 
 			collection = new Collection( database, collection_name );
 		}
-
-//		public override string ToString() {
-//			throw new NotImplementedException();
-//			// return this.to_json();
-//		}
 	}
 
 }

@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongo.Entity", "Mongo.Entity.csproj", "{3944D03A-7A68-423B-BEA6-88BB2A029305}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongo.Entity", "Mongo.Entity\Mongo.Entity.csproj", "{3944D03A-7A68-423B-BEA6-88BB2A029305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongo.Entity.UnitTest", "Mongo.Entity.UnitTest\Mongo.Entity.UnitTest.csproj", "{FE9D503E-B5BC-472C-8FDA-F8B0D12DDBAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5A03203C-F85B-46FE-A99A-F71C05983B14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{3944D03A-7A68-423B-BEA6-88BB2A029305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3944D03A-7A68-423B-BEA6-88BB2A029305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3944D03A-7A68-423B-BEA6-88BB2A029305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE9D503E-B5BC-472C-8FDA-F8B0D12DDBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE9D503E-B5BC-472C-8FDA-F8B0D12DDBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE9D503E-B5BC-472C-8FDA-F8B0D12DDBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE9D503E-B5BC-472C-8FDA-F8B0D12DDBAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
