@@ -1,6 +1,7 @@
 using System;
 using Mongo.Entity.Extensions;
 using Mongo.Entity.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Mongo.Entity {
@@ -10,9 +11,8 @@ namespace Mongo.Entity {
 		public Guid Id { get; set; }
 
 		protected MongoDatabase database {get; set;}
-		protected MongoCollection mongo_collection {get; set;}
-
-		protected Collection collection {get; set;}
+		
+		protected MongoCollection<BsonDocument> collection {get; set;}
 		protected IDatabaseSettings database_settings {get; set;}
 		protected string collection_name {get; set;}
 		
@@ -30,11 +30,11 @@ namespace Mongo.Entity {
 		
 		// PUBLIC METHODS
 		public virtual WriteConcernResult Save() {
-			return mongo_collection.Save( this );
+			return collection.Save( this );
 		}
 
 		public virtual WriteConcernResult Insert() {
-			return mongo_collection.Insert( this );
+			return collection.Insert( this );
 		}
 
 		public virtual WriteConcernResult Update() {
@@ -48,7 +48,7 @@ namespace Mongo.Entity {
 		public virtual WriteConcernResult Remove() {
 			var query = new QueryDocument( "_id", Id );
 
-			return mongo_collection.Remove( query );
+			return collection.Remove( query );
 		}
 
 		// PRIVATE METHODS
@@ -56,7 +56,7 @@ namespace Mongo.Entity {
 			var query = new QueryDocument( "_id", entity.Id );
 			var update_document = entity.as_update_document();
 			
-			return mongo_collection.Update( query, update_document, update_flags );
+			return collection.Update( query, update_document, update_flags );
 		}
 
 		private void use_settings( IEntitySettings entity_settings ) {
@@ -70,9 +70,7 @@ namespace Mongo.Entity {
 			var server = new MongoClient( database_settings.MongoClientSettings ).GetServer( );
 			
 			database = server.GetDatabase( database_settings.DatabaseName );
-			mongo_collection = database.GetCollection( collection_name );
-
-			collection = new Collection( database, collection_name );
+			collection = database.GetCollection( collection_name );
 		}
 	}
 
