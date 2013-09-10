@@ -3,7 +3,7 @@ cls
 echo *** Pushing all packages in this folder to NuGet.org ***
 echo.
 set cmd="dir /b *.nupkg | findstr /vi "symbols.nupkg""
-FOR /F %%F IN (' %packages% ') DO CALL :INVOKE %%F
+FOR /F %%F IN (' %cmd% ') DO CALL :INVOKE %%F
 GOTO :EOF
 
 :INVOKE
