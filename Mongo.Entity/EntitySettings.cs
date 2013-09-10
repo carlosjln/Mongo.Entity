@@ -10,6 +10,10 @@ namespace Mongo.Entity {
 
 		static readonly Dictionary<Type, EntitySettings> entity_settings_collection = new Dictionary<Type, EntitySettings>();
 
+//		public static void Register<TEntity>( IDatabaseSettings database_settings ) where TEntity : IMongoEntity {
+//			Register( typeof( TEntity ), database_settings, collection_name );
+//		}
+
 		public static void Register<TEntity>( IDatabaseSettings database_settings, string collection_name ) where TEntity : IMongoEntity {
 			Register( typeof( TEntity ), database_settings, collection_name );
 		}

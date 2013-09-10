@@ -18,6 +18,8 @@ Thumbs.db
 *.log
 *.lib
 *.sbr
+*.nupkg
+
 ~$*.docx
 
 [Dd]ebug*/

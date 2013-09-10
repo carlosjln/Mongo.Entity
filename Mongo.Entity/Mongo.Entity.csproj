@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DummyEntity, Version=1.0.4855.340, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DummyEntity.1.0.4855.340\lib\net40\DummyEntity.dll</HintPath>
-    </Reference>
     <Reference Include="MongoDB.Bson">
       <HintPath>packages\mongocsharpdriver.1.8.1\lib\net35\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -63,8 +59,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- RELEASE TO NUGET LOCAL FEED -->
+  <!-- RELEASE TO NUGET LOCAL FEED
   <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
     <Exec Command="NugetPacker.exe $(ProjectName) 0 $(ProjectDir)" />
   </Target>
+  -->
 </Project>
