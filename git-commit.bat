@@ -13,6 +13,7 @@ set /p push=Do you want to push your changes? [y/n]
 echo.
 IF "%push%"=="y" (
 	echo Pushing changes...
+	echo.
 	call git push
 )
 
