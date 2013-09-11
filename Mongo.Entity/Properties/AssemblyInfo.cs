@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © 2013 Carlos J. López")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion( "1.0.1" )]
-[assembly: AssemblyFileVersion( "1.0.1" )]
+[assembly: AssemblyVersion( "1.0.1.*" )]
+// [assembly: AssemblyFileVersion( "1.0.*" )]
 [assembly: AssemblyInformationalVersion("1.0.1")]
 
 #if DEBUG
@@ -20,6 +20,6 @@ using System.Runtime.InteropServices;
 #endif
 
 [assembly: ComVisible( false )]
-[assembly: AssemblyCulture( "en-US" )]
+[assembly: AssemblyCulture( "" )]
 
 [assembly: Guid( "8d36a24f-32ca-46a2-aeaf-ce5a7123fe76" )]
