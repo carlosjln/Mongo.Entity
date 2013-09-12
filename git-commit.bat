@@ -1,8 +1,10 @@
 @echo off
-call git add -A
 
 echo What did you do?
 set /p msg=I 
+
+echo.
+call git add -A
 
 echo.
 call git commit --verbose -m "%msg%"
