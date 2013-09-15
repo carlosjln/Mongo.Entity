@@ -3,15 +3,15 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle( "Mongo.Entity" )]
 [assembly: AssemblyProduct("Mongo.Entity")]
-[assembly: AssemblyDescription( "Mongo.Entity handles what needs to be done in order to insert, update, delete or retrieve your entities from MongoDB." )]
+[assembly: AssemblyDescription( "Domain driven MongoDB Entity." )]
 
 [assembly: AssemblyCompany("Carlos J. López")]
 [assembly: AssemblyCopyright("Copyright © 2013 Carlos J. López")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion( "1.0.1.*" )]
+[assembly: AssemblyVersion( "1.0.1.1" )]
 // [assembly: AssemblyFileVersion( "1.0.*" )]
-[assembly: AssemblyInformationalVersion("1.0.1")]
+// [assembly: AssemblyInformationalVersion("1.0.1")]
 
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]

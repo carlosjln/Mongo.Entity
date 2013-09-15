@@ -18,10 +18,9 @@ Thumbs.db
 *.log
 *.lib
 *.sbr
-*.nupkg
-
 ~$*.docx
 
+[Bb]in
 [Dd]ebug*/
 obj/
 [Rr]elease*/
@@ -34,5 +33,10 @@ _ReSharper*/
 *.[Rr]elease.config
 
 /packages
+*.nupkg
+*.nuspec
 
 backup.bat
+nuget-pack.bat
+git-commit.bat
+publish-locally.bat
