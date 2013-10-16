@@ -25,7 +25,7 @@ namespace Mongo.Entity {
 				CollectionName = collection_name
 			};
 			
-			entity_settings_collection.Add( entity_type, settings );
+			entity_settings_collection[ entity_type ] = settings;
 		}
 
 		public static IEntitySettings Get<TEntity>() where TEntity : IMongoEntity {
